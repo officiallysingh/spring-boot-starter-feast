@@ -18,47 +18,35 @@ syntax = "proto3";
 
 package feast.core;
 option java_package = "feast.proto.core";
-option java_outer_classname = "EntityProto";
+option java_outer_classname = "ProjectProto";
 option go_package = "github.com/feast-dev/feast/go/protos/feast/core";
 
-import "feast/types/Value.proto";
 import "google/protobuf/timestamp.proto";
 
-message Entity {
+message Project {
     // User-specified specifications of this entity.
-    EntitySpecV2 spec = 1;
+    ProjectSpec spec = 1;
     // System-populated metadata for this entity.
-    EntityMeta meta = 2;
+    ProjectMeta meta = 2;
 }
 
-message EntitySpecV2 {
-    // Name of the entity.
+message ProjectSpec {
+    // Name of the Project
     string name = 1;
 
-    // Name of Feast project that this feature table belongs to.
-    string project = 9;
-
-    // Type of the entity.
-    feast.types.ValueType.Enum value_type = 2;
-
-    // Description of the entity.
-    string description = 3;
-
-    // Join key for the entity (i.e. name of the column the entity maps to).
-    string join_key = 4;
+    // Description of the Project
+    string description = 2;
 
     // User defined metadata
-    map<string,string> tags = 8;
+    map<string,string> tags = 3;
 
-    // Owner of the entity.
-    string owner = 10;
+    // Owner of the Project
+    string owner = 4;
 }
 
-message EntityMeta {
+message ProjectMeta {
+    // Time when the Project is created
     google.protobuf.Timestamp created_timestamp = 1;
+    // Time when the Project is last updated with registry changes (Apply stage)
     google.protobuf.Timestamp last_updated_timestamp = 2;
-}
-
-message EntityList {
-    repeated Entity entities = 1;
 }

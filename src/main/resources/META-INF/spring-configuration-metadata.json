@@ -1,0 +1,176 @@
+{
+  "properties": [
+    {
+      "name": "mlhub.feature-store.feast.enabled",
+      "type": "java.lang.Boolean",
+      "defaultValue": "true",
+      "description": "Whether or not to enable Feast integration"
+    },
+    {
+      "name": "mlhub.feature-store.feast.project",
+      "type": "java.lang.String",
+      "defaultValue": "mlhub_feature_store",
+      "description": "Feature store project name."
+    },
+    {
+      "name": "mlhub.feature-store.feast.registry.host",
+      "type": "java.lang.String",
+      "defaultValue": "localhost",
+      "description": "Feast gRpc Registry server host address."
+    },
+    {
+      "name": "mlhub.feature-store.feast.registry.port",
+      "type": "java.lang.String",
+      "defaultValue": "localhost",
+      "description": "Feast gRpc Registry server port."
+    },
+    {
+      "name": "mlhub.feature-store.feast.serving.url",
+      "type": "java.lang.String",
+      "defaultValue": "http://localhost:6566",
+      "description": "Feast HTTP Serving server url."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.catalog.name",
+      "type": "java.lang.String",
+      "defaultValue": "hadoop",
+      "description": "Catalogue Name."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.catalog.type",
+      "type": "java.lang.String",
+      "defaultValue": "hadoop",
+      "description": "A custom Catalog implementation to use by an engine."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.catalog.warehouse",
+      "type": "java.lang.String",
+      "defaultValue": "local",
+      "description": "The root path of the data warehouse."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.catalog.uri",
+      "type": "java.lang.String",
+      "defaultValue": "null",
+      "description": "A URI string, such as Hive metastore URI."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.catalog.namespace",
+      "type": "java.lang.String",
+      "defaultValue": "null",
+      "description": "Catalog Namespace."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.catalog.io-impl",
+      "type": "java.lang.String",
+      "defaultValue": "null",
+      "description": "A custom FileIO implementation to use in a catalog."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.hadoop-fs-s3a.session-token",
+      "type": "java.lang.String",
+      "defaultValue": "",
+      "description": "Session token, when using org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider as one of the providers."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.hadoop-fs-s3a.aws-credentials-provider",
+      "type": "java.lang.String",
+      "defaultValue": "",
+      "description": "Comma-separated class names of credential provider classes which implement software.amazon.awssdk.auth.credentials.AwsCredentialsProvider. \nWhen S3A delegation tokens are not enabled, this list will be used to directly authenticate with S3 and other AWS services. \nWhen S3A Delegation tokens are enabled, depending upon the delegation token binding it may be used to communicate wih the STS endpoint to request session/role credentials."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.hadoop-fs-s3a.access-key",
+      "type": "java.lang.String",
+      "defaultValue": "",
+      "description": "AWS Access key."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.hadoop-fs-s3a.secret-key",
+      "type": "java.lang.String",
+      "defaultValue": "",
+      "description": "AWS Secret key."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.hadoop-fs-s3a.endpoint",
+      "type": "java.lang.String",
+      "defaultValue": "",
+      "description": "AWS S3 endpoint URL."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.hadoop-fs-s3a.impl",
+      "type": "java.lang.String",
+      "defaultValue": "org.apache.hadoop.fs.s3a.S3AFileSystem",
+      "description": "Implementation class for S3A file system."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.hadoop-fs-s3a.path-style-access",
+      "type": "java.lang.Boolean",
+      "defaultValue": true,
+      "description": "For path-style access, useful in some S3-compatible services."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.hadoop-fs-s3a.connection-ssl-enabled",
+      "type": "java.lang.Boolean",
+      "defaultValue": true,
+      "description": "Enable SSL."
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.hadoop-fs-s3a.fast-upload",
+      "type": "java.lang.Boolean",
+      "defaultValue": true,
+      "description": "Enable faster uploads."
+    }
+  ],
+  "hints": [
+    {
+      "name": "mlhub.feature-store.iceberg.catalog.type",
+      "values": [
+        {
+          "value": "hadoop",
+          "description": "Hadoop Catalog."
+        },
+        {
+          "value": "hive",
+          "description": "Hive Catalog."
+        },
+        {
+          "value": "glue",
+          "description": "AWS Glue Catalog."
+        },
+        {
+          "value": "nessie",
+          "description": "Nessie Catalog."
+        },
+        {
+          "value": "jdbc",
+          "description": "JDBC Catalog."
+        },
+        {
+          "value": "rest",
+          "description": "Rest Catalog."
+        }
+      ]
+    },
+    {
+      "name": "mlhub.feature-store.iceberg.hadoop-fs-s3a.aws-credentials-provider",
+      "values": [
+        {
+          "value": "org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider",
+          "description": "Provides temporary AWS credentials (Access Key ID, Secret Access Key, and Session Token)."
+        },
+        {
+          "value": "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider",
+          "description": "Supplies static AWS credentials (Access Key ID and Secret Access Key)."
+        },
+        {
+          "value": "software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider",
+          "description": "Loads credentials from environment variables: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY."
+        },
+        {
+          "value": "org.apache.hadoop.fs.s3a.auth.IAMInstanceCredentialsProvider",
+          "description": "Retrieves credentials from the EC2 instance metadata service."
+        }
+      ]
+    }
+  ]
+}
